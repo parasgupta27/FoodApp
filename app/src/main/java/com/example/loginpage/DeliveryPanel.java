@@ -8,6 +8,9 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -56,24 +59,24 @@ public class DeliveryPanel extends AppCompatActivity implements NavigationView.O
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        Fragment frag;
         switch (menuItem.getItemId())
         {
-            case R.id.nav_home:
-                navigationview.setCheckedItem(R.id.nav_home);
+            case R.id.current_order:
+                frag = new Current_order_fragment();
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                ft.replace(R.id.fragment_container,frag).commit();
                 break;
-
-
-            case R.id.nav_cart:
-                Intent intent3 =new Intent(DeliveryPanel.this, Cart_User.class);
-                startActivityForResult(intent3,0);
-                navigationview.setCheckedItem(R.id.nav_cart);
+            case R.id.avail_order:
+                frag = new Available_order_fragment();
+                FragmentManager fmr = getFragmentManager();
+                FragmentTransaction ftr = fmr.beginTransaction();
+                ftr.replace(R.id.fragment_container,frag).commit();
                 break;
+            case R.id.profile:
+                PassData();
 
-            case R.id.nav_settings:
-                navigationview.setCheckedItem(R.id.nav_settings);
-                //link to settings here
-
-                break;
         }
         drawerlayout.closeDrawer(GravityCompat.START);
         return true;
@@ -88,7 +91,7 @@ public class DeliveryPanel extends AppCompatActivity implements NavigationView.O
         String user_phoneNo = intent.getStringExtra("phone");
         String user_password = intent.getStringExtra("password");
 
-        Intent intent_set = new Intent(DeliveryPanel.this, Settings_Cus.class);
+        Intent intent_set = new Intent(DeliveryPanel.this, Settings_Del.class);
         intent_set.putExtra("username", user_username);
         intent_set.putExtra("name", user_name);
         intent_set.putExtra("radius", user_radius);
