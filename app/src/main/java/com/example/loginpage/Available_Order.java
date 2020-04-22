@@ -77,6 +77,8 @@ public class Available_Order extends AppCompatActivity {
                 else
                 {
                     ActivityCompat.requestPermissions(Available_Order.this,new String[]{Manifest.permission.SEND_SMS},SMS_PERMISSION_CODE);
+                    SmsManager smsManager = SmsManager.getDefault();
+                    smsManager.sendTextMessage(number,null,"Hi I am your delivery help! I will be reaching you shortly",null,null);
                 }
 
 
