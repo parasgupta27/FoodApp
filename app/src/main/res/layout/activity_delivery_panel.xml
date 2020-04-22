@@ -22,11 +22,7 @@
             android:elevation="4dp"
             android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
             app:popupTheme="@style/Theme.AppCompat.Light"/>
-        <fragment
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/fragment_container"
-            android:name="com.example.loginpage.Current_order_fragment"/>
+
 
 
 

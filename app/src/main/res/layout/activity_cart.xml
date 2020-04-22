@@ -192,6 +192,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
+                        android:onClick="PlaceOrder"
                         android:text="Place Order"
                         android:textColor="#FF5722"
                         android:textSize="20sp"

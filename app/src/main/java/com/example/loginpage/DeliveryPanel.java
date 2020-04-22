@@ -59,20 +59,16 @@ public class DeliveryPanel extends AppCompatActivity implements NavigationView.O
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        Fragment frag;
+
         switch (menuItem.getItemId())
         {
             case R.id.current_order:
-                frag = new Current_order_fragment();
-                FragmentManager fm = getFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
-                ft.replace(R.id.fragment_container,frag).commit();
+                Intent intent = new  Intent(DeliveryPanel.this,Current_Order.class);
+                startActivity(intent);
                 break;
             case R.id.avail_order:
-                frag = new Available_order_fragment();
-                FragmentManager fmr = getFragmentManager();
-                FragmentTransaction ftr = fmr.beginTransaction();
-                ftr.replace(R.id.fragment_container,frag).commit();
+                Intent intent2 = new  Intent(DeliveryPanel.this,Available_Order.class);
+                startActivity(intent2);
                 break;
             case R.id.profile:
                 PassData();

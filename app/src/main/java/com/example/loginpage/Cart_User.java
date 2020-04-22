@@ -15,12 +15,14 @@ import android.widget.TextView;
 
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Cart_User extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-
+    FirebaseDatabase rootNode;
     TextView t1,t2,t3,t4,t5,t6;
     int amount;
     @Override
@@ -75,6 +77,8 @@ public class Cart_User extends AppCompatActivity implements NavigationView.OnNav
 
         t6.setText(String.valueOf(amount));
 
+
+
     }
 
 
@@ -123,6 +127,11 @@ public class Cart_User extends AppCompatActivity implements NavigationView.OnNav
         intent_set.putExtra("phone", user_phoneNo);
         intent_set.putExtra("password", user_password);
         startActivity(intent_set);
+    }
+    private void PlaceOrder()
+    {
+        DatabaseReference reference = rootNode.getInstance().getReference("Placed Order");
+
     }
 
     private void PassData2() {
